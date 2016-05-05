@@ -17,14 +17,14 @@ class ArticleListProviderTests: XCTestCase {
         guard let article = articleListProvider.articleAtIndex(0) else { XCTFail("Article provider should return an article."); return }
         
         assertArticleHasMartianTitleText(article, expectedText: "Boinga to the Boinga!")
-        assertArticleHasMartianBodyText(article, expectedTest: "Or if boinga boinga, boinga out The New Boinga Boinga boinga.")
+        assertArticleHasMartianBodyText(article, expectedText: "Or if boinga boinga, boinga out The New Boinga Boinga boinga.")
     }
     
     func assertArticleHasMartianTitleText(article: AnyObject, expectedText: String) {
         assertionFailure("Not yet implemented.")
     }
     
-    func assertArticleHasMartianBodyText(article: AnyObject, expectedTest: String) {
+    func assertArticleHasMartianBodyText(article: AnyObject, expectedText: String) {
         assertionFailure("Not yet implemented.")
     }
 }
