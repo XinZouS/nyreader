@@ -156,11 +156,11 @@
 				TargetAttributes = {
 					C3D2D3931CB7F9540049D449 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 					};
 					C3D2D3A71CB7F9540049D449 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						TestTargetID = C3D2D3931CB7F9540049D449;
 					};
 				};
@@ -351,7 +351,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -363,7 +364,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -377,7 +379,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianNewsReader.app/MartianNewsReader";
 			};
 			name = Debug;
@@ -391,7 +394,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianNewsReader.app/MartianNewsReader";
 			};
 			name = Release;
