@@ -2,7 +2,7 @@
 //  ArticleListProvider.swift
 //  MartianNewsReader
 //
-//  Copyright © 2016 NYTimes. All rights reserved.
+//  Copyright © 2017 NYTimes. All rights reserved.
 //
 
 import Foundation
