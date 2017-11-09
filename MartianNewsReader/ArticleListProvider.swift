@@ -23,7 +23,7 @@ final class ArticleListProvider {
         return 0
     }
     
-    func articleAtIndex(index: Int) -> AnyObject? {
+    func articleAtIndex(_ index: Int) -> AnyObject? {
         assertionFailure("Not yet implemented.")
 
         return nil

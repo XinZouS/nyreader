@@ -156,9 +156,11 @@
 				TargetAttributes = {
 					C3D2D3931CB7F9540049D449 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0830;
 					};
 					C3D2D3A71CB7F9540049D449 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0830;
 						TestTargetID = C3D2D3931CB7F9540049D449;
 					};
 				};
@@ -349,6 +351,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -360,6 +363,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -373,6 +377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianNewsReader.app/MartianNewsReader";
 			};
 			name = Debug;
@@ -386,6 +391,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianNewsReader.app/MartianNewsReader";
 			};
 			name = Release;
@@ -409,6 +415,7 @@
 				C3D2D3B31CB7F9540049D449 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3D2D3B41CB7F9540049D449 /* Build configuration list for PBXNativeTarget "MartianNewsReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +424,7 @@
 				C3D2D3B61CB7F9540049D449 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

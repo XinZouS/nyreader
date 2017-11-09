@@ -8,9 +8,9 @@
 import UIKit
 
 final class ArticleListController: UITableViewController {
-    private let CellIdentifier = "Cell"
+    fileprivate let CellIdentifier = "Cell"
 
-    private let articleListProvider: ArticleListProvider
+    fileprivate let articleListProvider: ArticleListProvider
     
     override init(style: UITableViewStyle) {
         self.articleListProvider = ArticleListProvider()
@@ -24,12 +24,12 @@ final class ArticleListController: UITableViewController {
         super.init(coder: coder)
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articleListProvider.articleCount()
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath)
         
         let _ = articleListProvider.articleAtIndex(indexPath.row)
         
