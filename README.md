@@ -2,9 +2,9 @@
 
 You've been assigned the task of creating a translation of the New York Times news reader application for the latest emerging market -- Mars!  Luckily for you, the rules of translating English into Martian are pretty straightforward:
 
-* all words greater than 3 characters should be translated to the word "boinga"
-* capitalization must be maintained
-* punctuation within words (e.g. we'll) can be discarded, all other punctuation must be maintained.
+* All words greater than 3 characters should be translated to the word "boinga"
+* Capitalization must be maintained
+* Punctuation within words (e.g. we'll) can be discarded, all other punctuation must be maintained.
 
 Please complete the attached application by implementing the following requirements:
 
@@ -16,8 +16,10 @@ Please complete the attached application by implementing the following requireme
 * Add a toggle so that Martians can choose to read the article either in English or Martian. Persist this preference.
 * Consider the given code as a starting point. Apart from these requirements, feel free to change the organization and do what you think is best!
 
+Don't fork this repo on GitHub, as your implementation could be made public.
+
 The length of time spent to complete this exercise will not affect our evaluation. We understand that you are likely to have many things, both personally and professionally, that may slow you down. Your code will, however, be evaluated for style, simplicity and approach.
 
 Thank you and good luck!
 
-The NYT Mobile Team
+The NYT Team
