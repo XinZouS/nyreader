@@ -7,15 +7,16 @@
 
 import UIKit
 
-final class ArticleListController: UITableViewController {
+final class ArticleListController: UIViewController {
+    
     fileprivate let CellIdentifier = "Cell"
 
     fileprivate let articleListProvider: ArticleListProvider
     
-    override init(style: UITableViewStyle) {
+    
+    override init() {
+        super.init()
         self.articleListProvider = ArticleListProvider()
-        
-        super.init(style:style)
     }
     
     required init?(coder: NSCoder) {

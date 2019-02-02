@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6647A4A722060A7800AE325A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647A4A622060A7800AE325A /* Article.swift */; };
 		C3D2D3981CB7F9540049D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3971CB7F9540049D449 /* AppDelegate.swift */; };
-		C3D2D39D1CB7F9540049D449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D2D39B1CB7F9540049D449 /* Main.storyboard */; };
 		C3D2D39F1CB7F9540049D449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D2D39E1CB7F9540049D449 /* Assets.xcassets */; };
 		C3D2D3A21CB7F9540049D449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D2D3A01CB7F9540049D449 /* LaunchScreen.storyboard */; };
 		C3D2D3B81CB7F9B10049D449 /* ArticleListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3B71CB7F9B10049D449 /* ArticleListController.swift */; };
@@ -32,9 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6647A4A622060A7800AE325A /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		C3D2D3941CB7F9540049D449 /* MartianNewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartianNewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D2D3971CB7F9540049D449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C3D2D39C1CB7F9540049D449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3D2D39E1CB7F9540049D449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3D2D3A11CB7F9540049D449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3D2D3A31CB7F9540049D449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +64,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6647A4A12206061500AE325A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6647A4A622060A7800AE325A /* Article.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6647A4A22206062400AE325A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C3D2D3B71CB7F9B10049D449 /* ArticleListController.swift */,
+				C3D2D3BB1CB7F9C10049D449 /* ArticleViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6647A4A32206062D00AE325A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6647A4A42206063B00AE325A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C3D2D3B91CB7F9B80049D449 /* ArticleListProvider.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		6647A4A5220606D100AE325A /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		C3D2D38B1CB7F9540049D449 = {
 			isa = PBXGroup;
 			children = (
@@ -86,10 +125,11 @@
 			isa = PBXGroup;
 			children = (
 				C3D2D3971CB7F9540049D449 /* AppDelegate.swift */,
-				C3D2D3B71CB7F9B10049D449 /* ArticleListController.swift */,
-				C3D2D3B91CB7F9B80049D449 /* ArticleListProvider.swift */,
-				C3D2D3BB1CB7F9C10049D449 /* ArticleViewController.swift */,
-				C3D2D39B1CB7F9540049D449 /* Main.storyboard */,
+				6647A4A5220606D100AE325A /* Configs */,
+				6647A4A12206061500AE325A /* Models */,
+				6647A4A22206062400AE325A /* ViewControllers */,
+				6647A4A42206063B00AE325A /* Managers */,
+				6647A4A32206062D00AE325A /* Helpers */,
 				C3D2D39E1CB7F9540049D449 /* Assets.xcassets */,
 				C3D2D3A01CB7F9540049D449 /* LaunchScreen.storyboard */,
 				C3D2D3A31CB7F9540049D449 /* Info.plist */,
@@ -156,6 +196,7 @@
 				TargetAttributes = {
 					C3D2D3931CB7F9540049D449 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 6S4EWJH888;
 						LastSwiftMigration = 0900;
 					};
 					C3D2D3A71CB7F9540049D449 = {
@@ -191,7 +232,6 @@
 			files = (
 				C3D2D3A21CB7F9540049D449 /* LaunchScreen.storyboard in Resources */,
 				C3D2D39F1CB7F9540049D449 /* Assets.xcassets in Resources */,
-				C3D2D39D1CB7F9540049D449 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +253,7 @@
 				C3D2D3C11CB7FB7C0049D449 /* ArticleViewController.swift in Sources */,
 				C3D2D3981CB7F9540049D449 /* AppDelegate.swift in Sources */,
 				C3D2D3BA1CB7F9B80049D449 /* ArticleListProvider.swift in Sources */,
+				6647A4A722060A7800AE325A /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,14 +280,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C3D2D39B1CB7F9540049D449 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C3D2D39C1CB7F9540049D449 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C3D2D3A01CB7F9540049D449 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -364,9 +397,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6S4EWJH888;
 				INFOPLIST_FILE = MartianNewsReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.xin.MartianNewsReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -377,9 +411,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6S4EWJH888;
 				INFOPLIST_FILE = MartianNewsReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.xin.MartianNewsReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
