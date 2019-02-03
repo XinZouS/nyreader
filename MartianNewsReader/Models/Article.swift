@@ -9,16 +9,28 @@
 import Foundation
 import UIKit
 
-struct Article {
+class Article {
     
     let title: String
-    let titleImageUrlStr: String
-    let content: String
+    let images: [ArticleImage]
+    let body: String
     
-    init(title: String, titleImageUrlStr: String, content: String) {
+    init(title: String, images: [ArticleImage], body: String) {
         self.title = title
-        self.titleImageUrlStr = titleImageUrlStr
-        self.content = content
+        self.images = images
+        self.body = body
+    }
+    
+    init(_ dictionary: [String: Any]) {
+        self.title = dictionary[ApiServers.ServerKey.title.rawValue] as? String ?? ""
+        self.body  = dictionary[ApiServers.ServerKey.body.rawValue] as? String ?? ""
+        
+        var imgs: [ArticleImage] = []
+        let getImgArray = dictionary[ApiServers.ServerKey.images.rawValue] as? [[String:Any]] ?? []
+        for getImg in getImgArray {
+            imgs.append(ArticleImage(getImg))
+        }
+        self.images = imgs
     }
     
     func getTitleImage() -> UIImage? {
@@ -26,4 +38,29 @@ struct Article {
         return UIImage()
     }
     
+}
+
+struct ArticleImage {
+    let urlString: String
+    let isTopImage: Bool
+    let height: CGFloat
+    let width: CGFloat
+    
+    init(url: String, isTop: Bool, height: CGFloat, width: CGFloat) {
+        self.urlString = url
+        self.isTopImage = isTop
+        self.height = height
+        self.width = width
+    }
+    
+    init(_ dictionary: [String: Any]) {
+        self.urlString = dictionary[ApiServers.ServerKey.url.rawValue] as? String ?? ""
+        self.isTopImage = (dictionary[ApiServers.ServerKey.topImage.rawValue] as? String)?.toBool() ?? false
+        self.height = dictionary[ApiServers.ServerKey.height.rawValue] as? CGFloat ?? 0
+        self.width = dictionary[ApiServers.ServerKey.width.rawValue] as? CGFloat ?? 0
+    }
+    
+    func getUrl() -> URL? {
+        return URL(string: urlString)
+    }
 }

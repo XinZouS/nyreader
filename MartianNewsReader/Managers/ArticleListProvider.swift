@@ -22,14 +22,18 @@ final class ArticleListProvider {
         self.articles.append(contentsOf: articles)
     }
     
+    func allArticles() -> [Article] {
+        return articles
+    }
+    
     func articleCount() -> Int {
         return articles.count
     }
     
     func articleAtIndex(_ index: Int) -> Article? {
-        
-        
-        
+        if index < articles.count {
+            return articles[index]
+        }
         return nil
     }
 }
