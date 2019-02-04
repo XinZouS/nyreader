@@ -49,8 +49,8 @@ final class ApiServers: NSObject {
     
     func getImageWith(url: URL, completion: @escaping(UIImage?) -> Void) {
         let imageCache = NSCache<AnyObject, AnyObject>()
-        if let urlStr = url.absoluteString as? AnyObject,
-            let cacheImg = imageCache.object(forKey: urlStr) as? UIImage {
+        if let urlStr = url.absoluteString as? AnyObject, let cacheImg = imageCache.object(forKey: urlStr) as? UIImage {
+            print("------------ get chache Image -------------")
             completion(cacheImg)
             return
         }
@@ -101,35 +101,37 @@ final class ApiServers: NSObject {
     
 
     /**
-     * ✅ get (Data?) with url string, return NULL
+     * ✅ get (Data?) with url string in .background, return NULL
      */
     private func urlSessionDataTask(url: URL, completion: @escaping(Data?, URLResponse?, Error?) -> Void) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            #if DEBUG
-            let printText: String = """
-            =========================
-            [TIME UTC] \(Date())
-            [TIME GMT] \(Date().getCurrentLocalizedDate())
-            [GET ROUTE] \(route)
-            [RESPONSE] \(response?.url?.debugDescription ?? "")
-            """
-            print(printText)
-            #endif
-            
-            if let err = error {
-                DLog("[GET_ERROR] in URLSession dataTask: \(err.localizedDescription)")
-                completion(nil, response, err)
-                return
-            }
-            
-            if let dt = data {
-                completion(dt, response, nil) // ✅ get data
-
-            } else {
-                DLog("[GET_ERROR] error value = \(error?.localizedDescription ?? "NULL")")
-                DLog("[FULL RESPONSE] = \(response?.debugDescription ?? "NULL")")
-                completion(nil, response, error)
-            }
-        }.resume()
+        DispatchQueue.global(qos: .background).async {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                #if DEBUG
+                let printText: String = """
+                =========================
+                [TIME UTC] \(Date())
+                [TIME GMT] \(Date().getCurrentLocalizedDate())
+                [GET ROUTE] \(route)
+                [RESPONSE] \(response?.url?.debugDescription ?? "")
+                """
+                print(printText)
+                #endif
+                
+                if let err = error {
+                    DLog("[GET_ERROR] in URLSession dataTask: \(err.localizedDescription)")
+                    completion(nil, response, err)
+                    return
+                }
+                
+                if let dt = data {
+                    completion(dt, response, nil) // ✅ get data
+                    
+                } else {
+                    DLog("[GET_ERROR] error value = \(error?.localizedDescription ?? "NULL")")
+                    DLog("[FULL RESPONSE] = \(response?.debugDescription ?? "NULL")")
+                    completion(nil, response, error)
+                }
+            }.resume()
+        }
     }
 }

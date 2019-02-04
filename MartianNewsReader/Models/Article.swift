@@ -33,18 +33,13 @@ class Article {
         self.images = imgs
     }
     
-    func getTitleImage(completion: @escaping(UIImage?) -> Void) {
-        let topImages = images.filter { (image) -> Bool in
-            return image.isTopImage
-        }
-        if topImages.count > 0, let url = topImages.first?.getUrl() {
-            ApiServers.shared.getImageWith(url: url) { (getImage) in
-                completion(getImage)
+    func getTitleImageURL() -> URL? {
+        for img in images {
+            if img.isTopImage {
+                return img.getUrl()
             }
-        } else {
-            DLog("[ERROR] there is no topImage in the article [\(title)], images: \(images)")
-            completion(nil)
         }
+        return nil
     }
     
 }
@@ -64,7 +59,11 @@ struct ArticleImage {
     
     init(_ dictionary: [String: Any]) {
         self.urlString = dictionary[ApiServers.ServerKey.url.rawValue] as? String ?? ""
-        self.isTopImage = (dictionary[ApiServers.ServerKey.topImage.rawValue] as? String)?.toBool() ?? false
+        if let isTop = dictionary[ApiServers.ServerKey.topImage.rawValue] as? Int {
+            self.isTopImage = String(isTop).isTrue()
+        } else {
+            self.isTopImage = false
+        }
         self.height = dictionary[ApiServers.ServerKey.height.rawValue] as? CGFloat ?? 0
         self.width = dictionary[ApiServers.ServerKey.width.rawValue] as? CGFloat ?? 0
     }

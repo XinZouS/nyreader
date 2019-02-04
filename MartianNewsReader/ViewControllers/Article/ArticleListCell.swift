@@ -12,42 +12,55 @@ class ArticleListCell: UITableViewCell {
     
     var article: Article? {
         didSet{
-            setupArticle()
+            updateArticleUI()
         }
     }
     
     let topImageView = UIImageView()
     let titleLabel = UILabel()
     
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
-        setupArticle()
+        updateArticleUI()
     }
     
     private func setupUI() {
         let margin: CGFloat = 5
         topImageView.contentMode = .scaleAspectFill
         addSubview(topImageView)
-        topImageView.anchor(leadingAnchor, topAnchor, nil, bottomAnchor, lead: 0, top: margin, trail: 0, bottom: margin, width: 70, height: 0)
+        topImageView.anchor(leadingAnchor, topAnchor, nil, bottomAnchor, lead: 0, top: margin, trail: 0, bottom: margin, width: 90, height: 0)
         
+        titleLabel.contentMode = .topLeft
         titleLabel.textAlignment = .natural
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.numberOfLines = 2
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         addSubview(titleLabel)
         titleLabel.anchor(topImageView.trailingAnchor, topAnchor, trailingAnchor, bottomAnchor, lead: 10, top: margin, trail: margin, bottom: margin, width: 0, height: 0)
     }
     
-    private func setupArticle() {
+    private func updateArticleUI() {
         if let title = article?.title {
             titleLabel.text = title
         }
-        article?.getTitleImage(completion: { [weak self] (image) in
-            if let img = image {
-                DispatchQueue.main.async {
-                    self?.imageView?.image = img
+        if let url = article?.getTitleImageURL() {
+            print("geetttt url = \(url.absoluteString)")
+            ApiServers.shared.getImageWith(url: url) { (image) in
+                if let img = image {
+                    DispatchQueue.main.async {
+                        self.topImageView.image = img
+                    }
                 }
             }
-        })
+        }
     }
 
 }
