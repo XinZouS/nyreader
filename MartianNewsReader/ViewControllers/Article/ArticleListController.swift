@@ -9,6 +9,7 @@ import UIKit
 
 final class ArticleListController: UIViewController {
     
+    let targetUrl = "http://mobile.public.ec2.nytimes.com.s3-website-us-east-1.amazonaws.com/candidates/content/v1/articles.plist"
     fileprivate var articles: [Article] = ArticleListProvider.shared.allArticles()
     
     
@@ -20,7 +21,7 @@ final class ArticleListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        ApiServers.shared.getArticleListData { [weak self] (pList) in
+        ApiServers.shared.getArticleListData(route: targetUrl) { [weak self] (pList) in
             if let list = pList {
                 for item in list {
                     self?.articles.append(Article(item))
@@ -39,6 +40,7 @@ final class ArticleListController: UIViewController {
         view.addSubview(tableView)
         let vs = view.safeAreaLayoutGuide
         tableView.addConstraint(vs.leftAnchor, vs.topAnchor, vs.rightAnchor, vs.bottomAnchor)
+        tableView.tableFooterView = UIView()
     }
     
 }
@@ -56,6 +58,7 @@ extension ArticleListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ArticleListCell {
             cell.article = articles[indexPath.row]
+            cell.selectionStyle = .none
             return cell
         }
         return UITableViewCell(frame: .zero)

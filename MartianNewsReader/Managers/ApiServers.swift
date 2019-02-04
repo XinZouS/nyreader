@@ -35,9 +35,9 @@ final class ApiServers: NSObject {
     
     // MARK: - Get contents from remote
     
-    // Target: http://mobile.public.ec2.nytimes.com.s3-website-us-east-1.amazonaws.com/candidates/content/v1/articles.plist
-    func getArticleListData(completion: @escaping(([[String:Any]]?) -> Void)) {
-        let urlStr = "\(host)\(section)content/v1/articles.plist"
+    // default Target: http://mobile.public.ec2.nytimes.com.s3-website-us-east-1.amazonaws.com/candidates/content/v1/articles.plist
+    func getArticleListData(route: String?, completion: @escaping(([[String:Any]]?) -> Void)) {
+        let urlStr = route ?? "\(host)\(section)content/v1/articles.plist"
         getPListDataWithUrlRoute(urlStr) { (pList, error) in
             if let list = pList {
                 completion(list)
