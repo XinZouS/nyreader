@@ -30,6 +30,3 @@ func DLog(_ message: String) {
     #endif
 }
 
-func L(_ key: String) -> String {
-    return NSLocalizedString(key, comment: "")
-}

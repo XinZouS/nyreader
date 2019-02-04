@@ -9,17 +9,31 @@ import UIKit
 
 final class ArticleViewController: UIViewController {
     
-    let article: AnyObject?
+    fileprivate let article: Article?
     
-    init(article: AnyObject) {
+    fileprivate let textView = UITextView()
+    
+    init(article: Article) {
         self.article = article
-        
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         self.article = nil
-        
         super.init(coder: coder)
     }
+    
+    
+    // MARK: - view cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+    }
+    
+    private func setupView() {
+        
+    }
+    
 }
