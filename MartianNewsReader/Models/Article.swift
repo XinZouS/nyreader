@@ -33,9 +33,18 @@ class Article {
         self.images = imgs
     }
     
-    func getTitleImage() -> UIImage? {
-        // TODO: fetch image
-        return UIImage()
+    func getTitleImage(completion: @escaping(UIImage?) -> Void) {
+        let topImages = images.filter { (image) -> Bool in
+            return image.isTopImage
+        }
+        if topImages.count > 0, let url = topImages.first?.getUrl() {
+            ApiServers.shared.getImageWith(url: url) { (getImage) in
+                completion(getImage)
+            }
+        } else {
+            DLog("[ERROR] there is no topImage in the article [\(title)], images: \(images)")
+            completion(nil)
+        }
     }
     
 }

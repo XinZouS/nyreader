@@ -20,8 +20,15 @@ final class ArticleListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        ApiServers.shared.getArticleListData { [weak self] (dictionary) in
-            print("-------------------------")
+        ApiServers.shared.getArticleListData { [weak self] (pList) in
+            if let list = pList {
+                for item in list {
+                    self?.articles.append(Article(item))
+                }
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
         }
     }
     
@@ -48,7 +55,7 @@ extension ArticleListController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ArticleListCell {
-            
+            cell.article = articles[indexPath.row]
             return cell
         }
         return UITableViewCell(frame: .zero)
@@ -62,4 +69,7 @@ extension ArticleListController: UITableViewDelegate {
         //
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 }
