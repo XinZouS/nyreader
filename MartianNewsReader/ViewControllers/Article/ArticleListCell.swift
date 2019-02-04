@@ -40,9 +40,9 @@ class ArticleListCell: UITableViewCell {
         addSubview(topImageView)
         topImageView.anchor(leadingAnchor, topAnchor, nil, bottomAnchor, lead: margin, top: margin, trail: 0, bottom: margin, width: 90, height: 0)
         
+        titleLabel.numberOfLines = 3
         titleLabel.contentMode = .topLeft
         titleLabel.textAlignment = .natural
-        titleLabel.numberOfLines = 2
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         addSubview(titleLabel)
         titleLabel.anchor(topImageView.trailingAnchor, topAnchor, trailingAnchor, bottomAnchor, lead: margin * 2, top: margin, trail: margin * 2, bottom: margin, width: 0, height: 0)

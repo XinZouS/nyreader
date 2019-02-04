@@ -17,6 +17,8 @@ final class ApiServers: NSObject {
         super.init()
     }
     
+    fileprivate let imageCache = NSCache<NSString, UIImage>()
+    
     enum ServerKey: String {
         case data = "data"
         
@@ -48,15 +50,15 @@ final class ApiServers: NSObject {
     }
     
     func getImageWith(url: URL, completion: @escaping(UIImage?) -> Void) {
-        let imageCache = NSCache<AnyObject, AnyObject>()
-        if let urlStr = url.absoluteString as? AnyObject, let cacheImg = imageCache.object(forKey: urlStr) as? UIImage {
+        let urlStr = url.absoluteString as NSString
+        if let cacheImg = imageCache.object(forKey: urlStr) {
             print("------------ get chache Image -------------")
             completion(cacheImg)
             return
         }
-        urlSessionDataTask(url: url) { (data, response, error) in
+        urlSessionDataTask(url: url) { [weak self] (data, response, error) in
             if let d = data, let img = UIImage(data: d) {
-                print("------------ get Image !!!! -------------")
+                self?.imageCache.setObject(img, forKey: urlStr)
                 completion(img)
             } else {
                 DLog("[ERROR] getImageWithUrl: unable to unwarp UIImage from data;")
