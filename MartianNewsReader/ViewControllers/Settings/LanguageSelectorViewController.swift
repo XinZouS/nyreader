@@ -20,6 +20,7 @@ class LanguageSelectorViewController: UITableViewController {
         self.title = L("settings.ui.title.change-language")
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: languageCellId)
+        setupNavigationBarButtonItem()
         
         for i in 0..<dataSource.count {
             if currentLanguage == dataSource[i] {
@@ -36,6 +37,7 @@ class LanguageSelectorViewController: UITableViewController {
                                             action: #selector(handleSaveButton))
         navigationItem.rightBarButtonItem = confirmButton
     }
+    
     
     // MARK: - Table view data source
     
@@ -60,7 +62,6 @@ class LanguageSelectorViewController: UITableViewController {
     }
     
     @objc func handleSaveButton(sender: UIButton) {
-        
         guard let selectedIndexPath = selectedIndexPath,
             selectedIndexPath.row < dataSource.count,
             currentLanguage != dataSource[selectedIndexPath.row] else {
@@ -68,7 +69,6 @@ class LanguageSelectorViewController: UITableViewController {
             navigationController?.popViewController(animated: true)
             return
         }
-        
         let appLanguage = dataSource[selectedIndexPath.row]
         UserDefaults.setAppLanguage(appLanguage)
         navigationController?.popViewController(animated: true)
