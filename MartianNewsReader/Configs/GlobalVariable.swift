@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum ReadingLanguage: String {
-    case english = "English"
-    case martian = "Martian"
-}
-
-
 
 //MARK: - Helper Methods
 
@@ -30,3 +24,6 @@ func DLog(_ message: String) {
     #endif
 }
 
+func L(_ key: String) -> String {
+    return NSLocalizedString(key, comment: "")
+}

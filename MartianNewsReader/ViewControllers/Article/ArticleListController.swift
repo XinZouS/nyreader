@@ -20,7 +20,7 @@ final class ArticleListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "News"
+        title = L()
         view.backgroundColor = .white
         setupTableView()
         ApiServers.shared.getArticleListData(route: targetUrl) { [weak self] (pList) in

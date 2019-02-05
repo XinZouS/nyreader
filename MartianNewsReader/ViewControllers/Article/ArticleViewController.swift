@@ -11,6 +11,7 @@ final class ArticleViewController: UIViewController {
     
     fileprivate let article: Article?
     
+    fileprivate let toggleContainerView = UIView()
     fileprivate let textView = UITextView()
     
     init(article: Article) {

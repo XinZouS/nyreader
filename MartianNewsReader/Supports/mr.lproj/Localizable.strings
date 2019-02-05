@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  MartianNewsReader
+
+  Created by Xin Zou on 2/4/19.
+  Copyright © 2019 NYTimes. All rights reserved.
+*/
+
+// MARK: - General action messages
+"action.ok" = "OK";
+"action.done" = "Boinga";
+"action.cancel" = "Boinga";
+
+// MARK: - Article Views
+"article.ui.title.news" = "Boinga";
+"article.change-language.english" = "Boinga(En)";
+"article.change-language.martian" = "Boinga(Ma)";
+"article.change-language.change.title" = "Boinga boinga";
+"article.change-language.change.message" = "Boinga boinga boinga. Boinga boinga app for boinga boinga to boinga boinga.";
