@@ -18,6 +18,7 @@
 		6647A4BE2208FB9C00AE325A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6647A4C02208FB9C00AE325A /* Localizable.strings */; };
 		6647A4C32208FD7700AE325A /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647A4C22208FD7700AE325A /* ServiceManager.swift */; };
 		6647A4C62209D46B00AE325A /* LanguageSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647A4C52209D46B00AE325A /* LanguageSelectorViewController.swift */; };
+		6647A4C82209D7CA00AE325A /* UIAlertController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647A4C72209D7CA00AE325A /* UIAlertController++.swift */; };
 		C3D2D3981CB7F9540049D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3971CB7F9540049D449 /* AppDelegate.swift */; };
 		C3D2D39F1CB7F9540049D449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D2D39E1CB7F9540049D449 /* Assets.xcassets */; };
 		C3D2D3A21CB7F9540049D449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D2D3A01CB7F9540049D449 /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 		6647A4C12208FBB400AE325A /* mr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mr; path = mr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6647A4C22208FD7700AE325A /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		6647A4C52209D46B00AE325A /* LanguageSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectorViewController.swift; sourceTree = "<group>"; };
+		6647A4C72209D7CA00AE325A /* UIAlertController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController++.swift"; sourceTree = "<group>"; };
 		C3D2D3941CB7F9540049D449 /* MartianNewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartianNewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D2D3971CB7F9540049D449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3D2D39E1CB7F9540049D449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				6647A4A822062A7C00AE325A /* UIView++.swift */,
+				6647A4C72209D7CA00AE325A /* UIAlertController++.swift */,
 				6647A4AA22062B0E00AE325A /* UserDefaults++.swift */,
 				6647A4B32207556C00AE325A /* String++.swift */,
 				6647A4B52208D52700AE325A /* UIImageView++.swift */,
@@ -322,6 +325,7 @@
 				C3D2D3BA1CB7F9B80049D449 /* ArticleListProvider.swift in Sources */,
 				6647A4AD22062EF600AE325A /* GlobalVariable.swift in Sources */,
 				6647A4A722060A7800AE325A /* Article.swift in Sources */,
+				6647A4C82209D7CA00AE325A /* UIAlertController++.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

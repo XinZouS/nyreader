@@ -64,13 +64,7 @@ class LanguageSelectorViewController: UITableViewController {
         
         let appLanguage = dataSource[selectedIndexPath.row]
         
-        self.displayAlert(title: L("settings.change-language.change.title"),
-                          message: L("settings.change-language.change.message"),
-                          action: L("action.ok")) { [weak self] in
-                            ServiceManager.shared.setLanguage(appLanguage)
-                            //Show alert to restart the app
-                            self?.navigationController?.popViewController(animated: true)
-        }
+        // TODO: save setting, display alert tell user to restart app, or reload VC to get new language display!!!
     }
 }
 

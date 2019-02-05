@@ -14,6 +14,12 @@
 // MARK: - Article Views
 "article.ui.title.news" = "News";
 "article.change-language.english" = "English";
+"article.change-language.english.short" = "En.";
 "article.change-language.martian" = "Martian";
+"article.change-language.martian.short" = "Ma.";
 "article.change-language.change.title" = "Language Change";
 "article.change-language.change.message" = "Language change successful. Please restart app for language change to take effect.";
+
+// MARK: - Settings
+"settings.ui.title.change-language" = "Language";
+"settings.change-language.confirmed" = "Confirmed";

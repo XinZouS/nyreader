@@ -13,7 +13,13 @@
 
 // MARK: - Article Views
 "article.ui.title.news" = "Boinga";
-"article.change-language.english" = "Boinga(En)";
+"article.change-language.english" = "English";
+"article.change-language.english.short" = "En.";
 "article.change-language.martian" = "Boinga(Ma)";
+"article.change-language.martian.short" = "Ma.";
 "article.change-language.change.title" = "Boinga boinga";
 "article.change-language.change.message" = "Boinga boinga boinga. Boinga boinga app for boinga boinga to boinga boinga.";
+
+// MARK: - Settings
+"settings.ui.title.change-language" = "Boinga";
+"settings.change-language.confirmed" = "Boinga";

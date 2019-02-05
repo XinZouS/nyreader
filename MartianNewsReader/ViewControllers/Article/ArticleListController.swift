@@ -20,8 +20,10 @@ final class ArticleListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = L()
+        title = L("article.ui.title.news")
         view.backgroundColor = .white
+        
+        setupNavigationItems()
         setupTableView()
         ApiServers.shared.getArticleListData(route: targetUrl) { [weak self] (pList) in
             if let list = pList {
@@ -35,6 +37,21 @@ final class ArticleListController: UIViewController {
         }
     }
     
+    private func setupNavigationItems() {
+        var buttonTitle = ""
+        switch ServiceManager.shared.getAppLanguage() {
+        case .martian:
+            buttonTitle = L("article.change-language.martian.short")
+        default: // English
+            buttonTitle = L("article.change-language.english.short")
+        }
+        let changeLanguageButton = UIBarButtonItem(title: buttonTitle,
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(changeLanguageButtonTapped))
+        navigationItem.rightBarButtonItem = changeLanguageButton
+    }
+    
     private func setupTableView() {
         tableView.register(ArticleListCell.self, forCellReuseIdentifier: cellId)
         tableView.dataSource = self
@@ -45,6 +62,10 @@ final class ArticleListController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
+    @objc private func changeLanguageButtonTapped() {
+        let languageSelectVC = LanguageSelectorViewController()
+        navigationController?.pushViewController(languageSelectVC, animated: true)
+    }
 }
 
 extension ArticleListController: UITableViewDataSource {
