@@ -19,6 +19,7 @@ final class ArticleViewController: UIViewController {
     fileprivate var imageViewTopConstraint: NSLayoutConstraint?
     fileprivate let titleLabel = UILabel()
     fileprivate let textView = UITextView()
+    fileprivate var textViewContentOffsetY: CGFloat = 0
     
     init(article: Article) {
         self.article = article
@@ -82,9 +83,9 @@ final class ArticleViewController: UIViewController {
         
         // set text offset to fit title contents
         let articleMargin: CGFloat = 10
-        let topOffset: CGFloat = imgViewH  + lbH
-        self.textView.contentInset = UIEdgeInsets(top: topOffset, left: articleMargin, bottom: articleMargin, right: articleMargin)
-        self.textView.setContentOffset(CGPoint(x: 0, y: -topOffset), animated: false)
+        textViewContentOffsetY = imgViewH  + lbH + toggleContainerViewHeigh
+        self.textView.contentInset = UIEdgeInsets(top: textViewContentOffsetY, left: articleMargin, bottom: articleMargin, right: articleMargin)
+        self.textView.setContentOffset(CGPoint(x: 0, y: -textViewContentOffsetY), animated: false)
     }
     
     private func setupToggleView() {
@@ -121,9 +122,10 @@ final class ArticleViewController: UIViewController {
 extension ArticleViewController: UITextViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let a = scrollView.contentOffset.y
-        print("testView offset: \(a)")
-        
+        let y = scrollView.contentOffset.y
+        if y <= 0 { // move up title image
+            imageViewTopConstraint?.constant = -(y + textViewContentOffsetY)
+        }
     }
     
 }
