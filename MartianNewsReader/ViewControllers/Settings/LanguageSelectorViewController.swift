@@ -13,17 +13,13 @@ class LanguageSelectorViewController: UITableViewController {
     let languageCellId = "settingsLanguageCell"
     let dataSource = AppLanguage.allCases
     var selectedIndexPath: IndexPath?
-    let currentLanguage = ServiceManager.shared.getAppLanguage()
+    let currentLanguage = UserDefaults.getAppLanguage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = L("settings.ui.title.change-language")
         
-        let confirmButton = UIBarButtonItem(title: L("settings.change-language.confirmed"),
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(handleSaveButton))
-        navigationItem.rightBarButtonItem = confirmButton
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: languageCellId)
         
         for i in 0..<dataSource.count {
             if currentLanguage == dataSource[i] {
@@ -31,6 +27,14 @@ class LanguageSelectorViewController: UITableViewController {
                 break
             }
         }
+    }
+    
+    private func setupNavigationBarButtonItem() {
+        let confirmButton = UIBarButtonItem(title: L("settings.change-language.confirmed"),
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(handleSaveButton))
+        navigationItem.rightBarButtonItem = confirmButton
     }
     
     // MARK: - Table view data source
@@ -57,14 +61,17 @@ class LanguageSelectorViewController: UITableViewController {
     
     @objc func handleSaveButton(sender: UIButton) {
         
-        guard let selectedIndexPath = selectedIndexPath, currentLanguage != dataSource[selectedIndexPath.row] else {
+        guard let selectedIndexPath = selectedIndexPath,
+            selectedIndexPath.row < dataSource.count,
+            currentLanguage != dataSource[selectedIndexPath.row] else {
+                
             navigationController?.popViewController(animated: true)
             return
         }
         
         let appLanguage = dataSource[selectedIndexPath.row]
-        
-        // TODO: save setting, display alert tell user to restart app, or reload VC to get new language display!!!
+        UserDefaults.setAppLanguage(appLanguage)
+        navigationController?.popViewController(animated: true)
     }
 }
 

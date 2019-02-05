@@ -39,7 +39,7 @@ final class ArticleListController: UIViewController {
     
     private func setupNavigationItems() {
         var buttonTitle = ""
-        switch ServiceManager.shared.getAppLanguage() {
+        switch UserDefaults.getAppLanguage() {
         case .martian:
             buttonTitle = L("article.change-language.martian.short")
         default: // English
