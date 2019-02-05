@@ -13,7 +13,7 @@ final class ArticleViewController: UIViewController {
     
     fileprivate let toggle = UISwitch()
     fileprivate let toggleContainerView = UIView()
-    fileprivate let toggleContainerViewHeigh: CGFloat = 50
+    fileprivate let toggleContainerViewHeigh: CGFloat = 40
     fileprivate var toggleContainerTopConstraint: NSLayoutConstraint?
     fileprivate let imageView = UIImageView()
     fileprivate var imageViewTopConstraint: NSLayoutConstraint?
@@ -44,9 +44,11 @@ final class ArticleViewController: UIViewController {
     private func setupTextView() {
         textView.delegate = self
         textView.isEditable = false
+        textView.text = article?.body ?? ""
+        textView.font = UIFont.systemFont(ofSize: 14)
         view.addSubview(textView)
         let vs = view.safeAreaLayoutGuide
-        textView.anchor(vs.leadingAnchor, vs.topAnchor, vs.trailingAnchor, vs.bottomAnchor, lead: 0, top: 0, trail: 0, bottom: 0)
+        textView.anchor(vs.leadingAnchor, vs.topAnchor, vs.trailingAnchor, vs.bottomAnchor, lead: 0, top: toggleContainerViewHeigh, trail: 0, bottom: 0)
     }
     
     private func setupTitleViews() {
@@ -80,23 +82,21 @@ final class ArticleViewController: UIViewController {
         
         // set text offset to fit title contents
         let articleMargin: CGFloat = 10
-        let topOffset: CGFloat = imgViewH  + lbH + toggleContainerViewHeigh
-        textView.contentInset = UIEdgeInsets(top: topOffset, left: articleMargin, bottom: articleMargin, right: articleMargin)
-        textView.setContentOffset(CGPoint(x: topOffset, y: 0), animated: false)
-        textView.text = article?.body ?? ""
+        let topOffset: CGFloat = imgViewH  + lbH
+        self.textView.contentInset = UIEdgeInsets(top: topOffset, left: articleMargin, bottom: articleMargin, right: articleMargin)
+        self.textView.setContentOffset(CGPoint(x: 0, y: -topOffset), animated: false)
     }
     
     private func setupToggleView() {
+        toggleContainerView.backgroundColor = .white
         view.addSubview(toggleContainerView)
         let vs = view.safeAreaLayoutGuide
         toggleContainerView.anchor(vs.leadingAnchor, vs.topAnchor, vs.trailingAnchor, nil, lead: 0, top: 0, trail: 0, bottom: 0, width: 0, height: toggleContainerViewHeigh)
-        let bounds = CGRect(x: 0, y: 0, width: view.bounds.width, height: toggleContainerViewHeigh)
-        toggleContainerView.addGradientLayer(.white, .clear, bounds: bounds)
         
-        let margin: CGFloat = 10
+        let margin: CGFloat = 5
         toggle.isOn = (UserDefaults.getReadingLanguage() == ReadingLanguage.martian) // turnOn: translate to Martian
         toggleContainerView.addSubview(toggle)
-        toggle.anchor(nil, toggleContainerView.topAnchor, toggleContainerView.trailingAnchor, nil, lead: 0, top: margin, trail: margin, bottom: 0, width: 0, height: 0)
+        toggle.anchor(nil, toggleContainerView.topAnchor, toggleContainerView.trailingAnchor, nil, lead: 0, top: margin, trail: margin * 4, bottom: 0, width: 0, height: 0)
         toggle.addTarget(self, action: #selector(toggleValueChanged), for: .valueChanged)
         
         let martianLabel = UILabel()
@@ -122,7 +122,7 @@ extension ArticleViewController: UITextViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let a = scrollView.contentOffset.y
-        print("set testView offset: \(a)")
+        print("testView offset: \(a)")
         
     }
     
