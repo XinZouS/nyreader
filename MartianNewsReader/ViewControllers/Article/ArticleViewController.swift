@@ -110,8 +110,8 @@ final class ArticleViewController: UIViewController {
     @objc private func toggleValueChanged() {
         let newReadingLanguage: ReadingLanguage = toggle.isOn ? .martian : .english
         UserDefaults.setReadingLanguage(newReadingLanguage)
-        // TODO: do the translation!!!!!
-        if let article = article {
+        
+        if let text = article?.body {
             
         }
     }
