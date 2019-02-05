@@ -92,7 +92,10 @@ extension ArticleListController: UITableViewDataSource {
 extension ArticleListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        if indexPath.row < articles.count {
+            let articleVC = ArticleViewController(article: articles[indexPath.row])
+            navigationController?.pushViewController(articleVC, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

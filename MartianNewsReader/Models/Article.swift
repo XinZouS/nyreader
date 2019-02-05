@@ -32,11 +32,11 @@ class Article {
         }
         self.images = imgs
     }
-    
-    func getTitleImageURL() -> URL? {
+        
+    func getTitleImage() -> ArticleImage? {
         for img in images {
             if img.isTopImage {
-                return img.getUrl()
+                return img
             }
         }
         return nil

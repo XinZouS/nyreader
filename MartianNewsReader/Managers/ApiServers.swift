@@ -52,7 +52,6 @@ final class ApiServers: NSObject {
     func getImageWith(url: URL, completion: @escaping(UIImage?) -> Void) {
         let urlStr = url.absoluteString as NSString
         if let cacheImg = imageCache.object(forKey: urlStr) {
-            print("------------ get chache Image -------------")
             completion(cacheImg)
             return
         }

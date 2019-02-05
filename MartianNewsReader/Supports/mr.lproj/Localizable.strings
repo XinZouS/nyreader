@@ -17,9 +17,10 @@
 "article.change-language.english.short" = "En.";
 "article.change-language.martian" = "Boinga(Ma)";
 "article.change-language.martian.short" = "Ma.";
+"article.ui.toggle.title" = "Boinga to Boinga";
 
 // MARK: - Settings
-"settings.ui.title.change-language" = "Boinga";
+"settings.ui.title.change-language" = "App Boinga";
 "settings.change-language.confirmed" = "Boinga";
 "settings.change-language.change.title" = "Boinga boinga";
 "settings.change-language.change.message" = "App boinga boinga boinga. Boinga boinga app for boinga boinga to boinga boinga. You can boinga boinga in boinga boinga.";

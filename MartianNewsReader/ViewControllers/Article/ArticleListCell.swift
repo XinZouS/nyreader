@@ -52,7 +52,7 @@ class ArticleListCell: UITableViewCell {
         guard let article = article else { return }
         titleLabel.text = article.title
         
-        if let url = article.getTitleImageURL() {
+        if let url = article.getTitleImage()?.getUrl() {
             ApiServers.shared.getImageWith(url: url) { [weak self] (image) in
                 if let img = image {
                     DispatchQueue.main.async {
