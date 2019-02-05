@@ -31,9 +31,9 @@ enum AppLanguage: String, CaseIterable {
     func selectorTitle() -> String {
         switch self {
         case .martian:
-            return L("settings.change-language.tranditional-chinese")
+            return L("article.change-language.martian")
         default:
-            return L("settings.change-language.english")
+            return L("article.change-language.english")
         }
     }
 }
@@ -44,53 +44,6 @@ enum ReadingLanguage: String {
 }
 
 extension ServiceManager {
-    
-    // MARK: - App UI language
-    func getAppLanguage() -> AppLanguage {
-        // User setted language:
-        if let locality = UserDefaults.standard.object(forKey: UserDefaultKeys.appLanguages.rawValue) as? [String] {
-            if let currentLanguage = locality.first, let appLanguage = AppLanguage(rawValue: currentLanguage) {
-                return appLanguage
-            }
-        }
-        // if user does NOT setup AppLanguae, use System default language:
-        let systemLanguage = getSystemLanguage()
-        switch systemLanguage {
-        case .mr:
-            return AppLanguage.martian
-        case .en:
-            return AppLanguage.english
-        }
-    }
-    
-    func setAppLanguage(_ language: AppLanguage) {
-        UserDefaults.standard.set([language.rawValue], forKey: UserDefaultKeys.appLanguages.rawValue)
-        UserDefaults.standard.synchronize()
-    }
-    
-    
-    // MARK: - Reading language
-    func getReadingLanguage() -> AppLanguage {
-        // User setted language:
-        if let locality = UserDefaults.standard.object(forKey: UserDefaultKeys.readingLanguage.rawValue) as? [String] {
-            if let currentLanguage = locality.first, let appLanguage = AppLanguage(rawValue: currentLanguage) {
-                return appLanguage
-            }
-        }
-        // if user does NOT setup AppLanguae, use System default language:
-        let systemLanguage = getSystemLanguage()
-        switch systemLanguage {
-        case .mr:
-            return AppLanguage.martian
-        case .en:
-            return AppLanguage.english
-        }
-    }
-    
-    func setReadingLanguage(_ language: AppLanguage) {
-        UserDefaults.standard.set([language.rawValue], forKey: UserDefaultKeys.readingLanguage.rawValue)
-        UserDefaults.standard.synchronize()
-    }
     
     // MARK: - System language
     func getSystemLanguage() -> SystemLanguage {
