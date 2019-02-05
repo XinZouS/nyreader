@@ -124,7 +124,7 @@ extension ArticleViewController: UITextViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
         if y <= 0 { // move up title image
-            imageViewTopConstraint?.constant = -(y + textViewContentOffsetY)
+            imageViewTopConstraint?.constant = -(y + textViewContentOffsetY) + toggleContainerViewHeigh
         }
     }
     
