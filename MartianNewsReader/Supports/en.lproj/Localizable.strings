@@ -17,9 +17,10 @@
 "article.change-language.english.short" = "En.";
 "article.change-language.martian" = "Martian";
 "article.change-language.martian.short" = "Ma.";
-"article.change-language.change.title" = "Language Change";
-"article.change-language.change.message" = "Language change successful. Please restart app for language change to take effect.";
 
 // MARK: - Settings
 "settings.ui.title.change-language" = "Language";
 "settings.change-language.confirmed" = "Confirmed";
+"settings.change-language.change.title" = "Language Change";
+"settings.change-language.change.message" = "App language change successful. Please restart app for language change to take effect. You can still read in other languages.";
+

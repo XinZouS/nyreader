@@ -70,8 +70,10 @@ class LanguageSelectorViewController: UITableViewController {
             return
         }
         let appLanguage = dataSource[selectedIndexPath.row]
-        UserDefaults.setAppLanguage(appLanguage)
-        navigationController?.popViewController(animated: true)
+        displayOkAlert(title: L("settings.change-language.change.title"), message: L("settings.change-language.change.message"), action: L("action.ok"), completion: { [weak self] in
+            UserDefaults.setAppLanguage(appLanguage)
+            self?.navigationController?.popViewController(animated: true)
+        })
     }
 }
 
