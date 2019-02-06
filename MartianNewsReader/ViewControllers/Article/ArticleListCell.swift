@@ -50,8 +50,9 @@ class ArticleListCell: UITableViewCell {
     
     private func updateArticleUI() {
         guard let article = article else { return }
-        titleLabel.text = article.title
         
+        let isMartian = UserDefaults.getReadingLanguage() == .martian
+        titleLabel.text = (isMartian ? TranslationManager.shared.toMartian(article.title) : article.title)
         if let url = article.getTitleImage()?.getUrl() {
             ApiServers.shared.getImageWith(url: url) { [weak self] (image) in
                 if let img = image {

@@ -26,13 +26,13 @@ final class ArticleListController: UIViewController {
         setupNavigationItems()
         setupToggleView()
         setupTableView()
-        ApiServers.shared.getArticleListData(route: targetUrl) { [weak self] (pList) in
+        ApiServers.shared.getArticleListData(route: targetUrl) { [unowned self] (pList) in
             if let list = pList {
                 for (idx, item) in list.enumerated() {
-                    self?.articles.append(Article(item, index: idx))
+                    self.articles.append(Article(item, index: idx))
                 }
                 DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -84,6 +84,7 @@ extension ArticleListController: TranslateToggleDelegate {
         let newReadingLanguage: ReadingLanguage = toggleView.isToggleOn() ? .martian : .english
         UserDefaults.setReadingLanguage(newReadingLanguage)
         
+        tableView.reloadData()
         print("--- should set all cells title translate text!!!")
         
     }
