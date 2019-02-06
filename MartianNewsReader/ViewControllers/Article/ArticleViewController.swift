@@ -11,8 +11,7 @@ final class ArticleViewController: UIViewController {
     
     fileprivate let article: Article?
     
-    fileprivate let toggle = UISwitch()
-    fileprivate let toggleContainerView = UIView()
+    fileprivate let toggleContainerView = TranslateToggleView(title: L("article.ui.toggle.title"))
     fileprivate let toggleContainerViewHeigh: CGFloat = 40
     fileprivate var toggleContainerTopConstraint: NSLayoutConstraint?
     fileprivate let imageView = UIImageView()
@@ -46,33 +45,12 @@ final class ArticleViewController: UIViewController {
     }
     
     private func setupToggleView() {
-        toggleContainerView.backgroundColor = .white
         view.addSubview(toggleContainerView)
         let vs = view.safeAreaLayoutGuide
         toggleContainerView.anchor(vs.leadingAnchor, vs.topAnchor, vs.trailingAnchor, nil, lead: 0, top: 0, trail: 0, bottom: 0, width: 0, height: toggleContainerViewHeigh)
-        toggleContainerView.layer.zPosition = 99
-        
-        let margin: CGFloat = 5
-        toggle.isOn = (UserDefaults.getReadingLanguage() == ReadingLanguage.martian) // turnOn: translate to Martian
-        toggleContainerView.addSubview(toggle)
-        toggle.anchor(nil, toggleContainerView.topAnchor, toggleContainerView.trailingAnchor, nil, lead: 0, top: margin, trail: margin * 4, bottom: 0, width: 0, height: 0)
-        toggle.addTarget(self, action: #selector(toggleValueChanged), for: .valueChanged)
-        
-        let martianLabel = UILabel()
-        martianLabel.font = UIFont.systemFont(ofSize: 14)
-        martianLabel.text = L("article.ui.toggle.title")
-        toggleContainerView.addSubview(martianLabel)
-        martianLabel.anchor(nil, nil, toggle.leadingAnchor, nil, lead: 0, top: 0, trail: margin, bottom: 0)
-        martianLabel.centerYAnchor.constraint(equalTo: toggle.centerYAnchor).isActive = true
-    }
-    
-    @objc private func toggleValueChanged() {
-        let newReadingLanguage: ReadingLanguage = toggle.isOn ? .martian : .english
-        UserDefaults.setReadingLanguage(newReadingLanguage)
-        
-        if let text = article?.body {
-            
-        }
+        toggleContainerView.layer.zPosition = 99 // toggleView on top of all layers
+        toggleContainerView.setToggleOn(UserDefaults.getReadingLanguage() == ReadingLanguage.martian)
+        toggleContainerView.delegate = self
     }
     
     private func setupTextView() {
@@ -82,7 +60,7 @@ final class ArticleViewController: UIViewController {
         textView.font = UIFont.systemFont(ofSize: 14)
         view.addSubview(textView)
         let vs = view.safeAreaLayoutGuide
-        textView.anchor(vs.leadingAnchor, toggle.bottomAnchor, vs.trailingAnchor, vs.bottomAnchor, lead: 0, top: 0, trail: 0, bottom: 0)
+        textView.anchor(vs.leadingAnchor, toggleContainerView.bottomAnchor, vs.trailingAnchor, vs.bottomAnchor, lead: 0, top: 0, trail: 0, bottom: 0)
     }
     
     private func setupTitleViews() {
@@ -122,6 +100,19 @@ final class ArticleViewController: UIViewController {
         print("then set textView Y = \(textViewContentOffsetY)")
         self.textView.contentInset = UIEdgeInsets(top: textViewContentOffsetY, left: articleMargin, bottom: articleMargin, right: articleMargin)
         self.textView.setContentOffset(CGPoint(x: 0, y: -textViewContentOffsetY), animated: false)
+    }
+    
+}
+
+extension ArticleViewController: TranslateToggleDelegate {
+    
+    func toggleDidChanged(isOn: Bool) {
+        let newReadingLanguage: ReadingLanguage = toggleContainerView.isToggleOn() ? .martian : .english
+        UserDefaults.setReadingLanguage(newReadingLanguage)
+        
+        if let text = article?.body {
+            print("--- should get the translate text!!!")
+        }
     }
     
 }
