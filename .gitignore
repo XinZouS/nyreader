@@ -6,7 +6,9 @@
 .LSOverride
 
 Helpers/
+GlobalVariable.swift
 AppDelegate.swift
+TranslationManager.swift
 *.storyboard
 info.plist
 

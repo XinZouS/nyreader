@@ -42,6 +42,14 @@ class Article {
         return nil
     }
     
+    /**
+     * All words greater than 3 characters should be translated to the word "boinga"
+     * Capitalization must be maintained
+     * Punctuation within words (e.g. we'll) can be discarded, all other punctuation must be maintained.
+     */
+    func getMartian() -> String {
+        
+    }
 }
 
 struct ArticleImage {
