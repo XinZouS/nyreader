@@ -145,10 +145,11 @@ extension ArticleViewController: UITextViewDelegate {
         if y < -textViewContentOffsetY { // enlarge title image
             imageViewHeighConstraint?.constant = max(imageViewHeigh, abs(y + titleLabelHeigh))
             
-        } else
-        if y <= toggleContainerViewHeigh { // move up title image
+        } else if y <= toggleContainerViewHeigh { // move up title image
             imageViewTopConstraint?.constant = -y - textViewContentOffsetY
+            
+        } else {
+            imageViewTopConstraint?.constant = -(imageViewHeigh + titleLabelHeigh + toggleContainerViewHeigh)
         }
-
     }
 }
