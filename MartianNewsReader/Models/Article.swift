@@ -11,19 +11,22 @@ import UIKit
 
 class Article {
     
+    let id: String
     let title: String
     let images: [ArticleImage]
     let body: String
     
-    init(title: String, images: [ArticleImage], body: String) {
+    init(title: String, images: [ArticleImage], body: String, id: String) {
+        self.id = id
         self.title = title
         self.images = images
         self.body = body
     }
     
-    init(_ dictionary: [String: Any]) {
+    init(_ dictionary: [String: Any], index: Int) {
         self.title = dictionary[ApiServers.ServerKey.title.rawValue] as? String ?? ""
         self.body  = dictionary[ApiServers.ServerKey.body.rawValue] as? String ?? ""
+        self.id = "\(self.title)_\(index)" // auto generate id for cache
         
         var imgs: [ArticleImage] = []
         let getImgArray = dictionary[ApiServers.ServerKey.images.rawValue] as? [[String:Any]] ?? []
@@ -42,14 +45,6 @@ class Article {
         return nil
     }
     
-    /**
-     * All words greater than 3 characters should be translated to the word "boinga"
-     * Capitalization must be maintained
-     * Punctuation within words (e.g. we'll) can be discarded, all other punctuation must be maintained.
-     */
-    func getMartian() -> String {
-        
-    }
 }
 
 struct ArticleImage {

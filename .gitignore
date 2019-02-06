@@ -5,6 +5,7 @@
 .AppleDouble
 .LSOverride
 
+Views/
 Helpers/
 GlobalVariable.swift
 AppDelegate.swift

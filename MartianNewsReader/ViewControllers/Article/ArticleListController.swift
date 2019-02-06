@@ -27,8 +27,8 @@ final class ArticleListController: UIViewController {
         setupTableView()
         ApiServers.shared.getArticleListData(route: targetUrl) { [weak self] (pList) in
             if let list = pList {
-                for item in list {
-                    self?.articles.append(Article(item))
+                for (idx, item) in list.enumerated() {
+                    self?.articles.append(Article(item, index: idx))
                 }
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
