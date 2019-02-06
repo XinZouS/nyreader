@@ -63,5 +63,10 @@ class ArticleListCell: UITableViewCell {
             }
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.article = nil
+    }
 
 }

@@ -83,10 +83,7 @@ extension ArticleListController: TranslateToggleDelegate {
     func toggleDidChanged(isOn: Bool) {
         let newReadingLanguage: ReadingLanguage = toggleView.isToggleOn() ? .martian : .english
         UserDefaults.setReadingLanguage(newReadingLanguage)
-        
         tableView.reloadData()
-        print("--- should set all cells title translate text!!!")
-        
     }
 }
 
