@@ -92,7 +92,6 @@ final class ArticleViewController: UIViewController {
         view.addSubview(imageView)
         if let img = article?.getTitleImage()  {
             imageViewHeigh = (img.height / img.width) * view.bounds.width
-            print("set image default H = \(imageViewHeigh)")
         }
         imageView.addConstraint(vs.leftAnchor, nil, vs.rightAnchor, nil, left: 0, top: 0, right: 0, bottom: 0)
         imageViewHeighConstraint = imageView.heightAnchor.constraint(equalToConstant: imageViewHeigh)
@@ -114,7 +113,7 @@ final class ArticleViewController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
         titleLabel.numberOfLines = 0
         view.addSubview(titleLabel)
-        titleLabelHeigh = titleLabel.intrinsicContentSize.height + titleMargin
+        titleLabelHeigh = titleLabel.intrinsicContentSize.height + titleMargin * 2
         titleLabel.anchor(vs.leadingAnchor, imageView.bottomAnchor, vs.trailingAnchor, nil, lead: titleMargin, top: 0, trail: titleMargin, bottom: 0, width: 0, height: titleLabelHeigh)
         
         // set text offset to fit title contents
@@ -138,7 +137,7 @@ extension ArticleViewController: UITextViewDelegate {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        animateUpdateTitleContents(scrollView)
+        animateUpdateTitleContents(scrollView)
     }
     
     private func animateUpdateTitleContents(_ scrollView: UIScrollView) {
@@ -148,7 +147,7 @@ extension ArticleViewController: UITextViewDelegate {
             
         } else
         if y <= toggleContainerViewHeigh { // move up title image
-            imageViewTopConstraint?.constant = -(y + textViewContentOffsetY)
+            imageViewTopConstraint?.constant = -y - textViewContentOffsetY
         }
 
     }
