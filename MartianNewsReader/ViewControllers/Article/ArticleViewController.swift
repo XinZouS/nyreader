@@ -17,7 +17,10 @@ final class ArticleViewController: UIViewController {
     fileprivate var toggleContainerTopConstraint: NSLayoutConstraint?
     fileprivate let imageView = UIImageView()
     fileprivate var imageViewTopConstraint: NSLayoutConstraint?
+    fileprivate var imageViewHeighConstraint: NSLayoutConstraint?
+    fileprivate var imageViewHeigh: CGFloat = 360
     fileprivate let titleLabel = UILabel()
+    fileprivate var titleLabelHeigh: CGFloat = 40
     fileprivate let textView = UITextView()
     fileprivate var textViewContentOffsetY: CGFloat = 0
     
@@ -37,55 +40,9 @@ final class ArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupToggleView()
         setupTextView()
         setupTitleViews()
-        setupToggleView()
-    }
-    
-    private func setupTextView() {
-        textView.delegate = self
-        textView.isEditable = false
-        textView.text = article?.body ?? ""
-        textView.font = UIFont.systemFont(ofSize: 14)
-        view.addSubview(textView)
-        let vs = view.safeAreaLayoutGuide
-        textView.anchor(vs.leadingAnchor, vs.topAnchor, vs.trailingAnchor, vs.bottomAnchor, lead: 0, top: toggleContainerViewHeigh, trail: 0, bottom: 0)
-    }
-    
-    private func setupTitleViews() {
-        imageView.contentMode = .scaleAspectFit
-        let vs = view.safeAreaLayoutGuide
-        view.addSubview(imageView)
-        var imgViewH: CGFloat = 160
-        if let img = article?.getTitleImage()  {
-            imgViewH = (img.height / img.width) * view.bounds.width
-        }
-        imageView.addConstraint(vs.leftAnchor, nil, vs.rightAnchor, nil, left: 0, top: 0, right: 0, bottom: 0, width: 0, height: imgViewH)
-        imageViewTopConstraint = imageView.topAnchor.constraint(equalTo: vs.topAnchor, constant: toggleContainerViewHeigh)
-        imageViewTopConstraint?.isActive = true
-        
-        if let url = article?.getTitleImage()?.getUrl() {
-            ApiServers.shared.getImageWith(url: url) { [weak self] (image) in
-                DispatchQueue.main.async {
-                    self?.imageView.image = image
-                }
-            }
-        }
-        
-        let titleMargin: CGFloat = 20
-        titleLabel.backgroundColor = .white
-        titleLabel.text = article?.title ?? ""
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        titleLabel.numberOfLines = 0
-        view.addSubview(titleLabel)
-        let lbH = titleLabel.intrinsicContentSize.height + titleMargin
-        titleLabel.anchor(vs.leadingAnchor, imageView.bottomAnchor, vs.trailingAnchor, nil, lead: titleMargin, top: 0, trail: titleMargin, bottom: 0, width: 0, height: lbH)
-        
-        // set text offset to fit title contents
-        let articleMargin: CGFloat = 10
-        textViewContentOffsetY = imgViewH  + lbH + toggleContainerViewHeigh
-        self.textView.contentInset = UIEdgeInsets(top: textViewContentOffsetY, left: articleMargin, bottom: articleMargin, right: articleMargin)
-        self.textView.setContentOffset(CGPoint(x: 0, y: -textViewContentOffsetY), animated: false)
     }
     
     private func setupToggleView() {
@@ -93,6 +50,7 @@ final class ArticleViewController: UIViewController {
         view.addSubview(toggleContainerView)
         let vs = view.safeAreaLayoutGuide
         toggleContainerView.anchor(vs.leadingAnchor, vs.topAnchor, vs.trailingAnchor, nil, lead: 0, top: 0, trail: 0, bottom: 0, width: 0, height: toggleContainerViewHeigh)
+        toggleContainerView.layer.zPosition = 99
         
         let margin: CGFloat = 5
         toggle.isOn = (UserDefaults.getReadingLanguage() == ReadingLanguage.martian) // turnOn: translate to Martian
@@ -117,15 +75,81 @@ final class ArticleViewController: UIViewController {
         }
     }
     
+    private func setupTextView() {
+        textView.delegate = self
+        textView.isEditable = false
+        textView.text = article?.body ?? ""
+        textView.font = UIFont.systemFont(ofSize: 14)
+        view.addSubview(textView)
+        let vs = view.safeAreaLayoutGuide
+        textView.anchor(vs.leadingAnchor, toggle.bottomAnchor, vs.trailingAnchor, vs.bottomAnchor, lead: 0, top: 0, trail: 0, bottom: 0)
+    }
+    
+    private func setupTitleViews() {
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
+        let vs = view.safeAreaLayoutGuide
+        view.addSubview(imageView)
+        if let img = article?.getTitleImage()  {
+            imageViewHeigh = (img.height / img.width) * view.bounds.width
+            print("set image default H = \(imageViewHeigh)")
+        }
+        imageView.addConstraint(vs.leftAnchor, nil, vs.rightAnchor, nil, left: 0, top: 0, right: 0, bottom: 0)
+        imageViewHeighConstraint = imageView.heightAnchor.constraint(equalToConstant: imageViewHeigh)
+        imageViewHeighConstraint?.isActive = true
+        imageViewTopConstraint = imageView.topAnchor.constraint(equalTo: toggleContainerView.bottomAnchor, constant: 0)
+        imageViewTopConstraint?.isActive = true
+        
+        if let url = article?.getTitleImage()?.getUrl() {
+            ApiServers.shared.getImageWith(url: url) { [weak self] (image) in
+                DispatchQueue.main.async {
+                    self?.imageView.image = image
+                }
+            }
+        }
+        
+        let titleMargin: CGFloat = 20
+        titleLabel.backgroundColor = .white
+        titleLabel.text = article?.title ?? ""
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.numberOfLines = 0
+        view.addSubview(titleLabel)
+        titleLabelHeigh = titleLabel.intrinsicContentSize.height + titleMargin
+        titleLabel.anchor(vs.leadingAnchor, imageView.bottomAnchor, vs.trailingAnchor, nil, lead: titleMargin, top: 0, trail: titleMargin, bottom: 0, width: 0, height: titleLabelHeigh)
+        
+        // set text offset to fit title contents
+        let articleMargin: CGFloat = 10
+        textViewContentOffsetY = imageViewHeigh  + titleLabelHeigh
+        print("then set textView Y = \(textViewContentOffsetY)")
+        self.textView.contentInset = UIEdgeInsets(top: textViewContentOffsetY, left: articleMargin, bottom: articleMargin, right: articleMargin)
+        self.textView.setContentOffset(CGPoint(x: 0, y: -textViewContentOffsetY), animated: false)
+    }
+    
 }
 
 extension ArticleViewController: UITextViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let y = scrollView.contentOffset.y
-        if y <= 0 { // move up title image
-            imageViewTopConstraint?.constant = -(y + textViewContentOffsetY) + toggleContainerViewHeigh
-        }
+        animateUpdateTitleContents(scrollView)
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        animateUpdateTitleContents(scrollView)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        animateUpdateTitleContents(scrollView)
+    }
+    
+    private func animateUpdateTitleContents(_ scrollView: UIScrollView) {
+        let y = scrollView.contentOffset.y
+        if y < -textViewContentOffsetY { // enlarge title image
+            imageViewHeighConstraint?.constant = max(imageViewHeigh, abs(y + titleLabelHeigh))
+            
+        } else
+        if y <= toggleContainerViewHeigh { // move up title image
+            imageViewTopConstraint?.constant = -(y + textViewContentOffsetY)
+        }
+
+    }
 }
