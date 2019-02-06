@@ -97,7 +97,6 @@ final class ArticleViewController: UIViewController {
         // set text offset to fit title contents
         let articleMargin: CGFloat = 10
         textViewContentOffsetY = imageViewHeigh  + titleLabelHeigh
-        print("then set textView Y = \(textViewContentOffsetY)")
         self.textView.contentInset = UIEdgeInsets(top: textViewContentOffsetY, left: articleMargin, bottom: articleMargin, right: articleMargin)
         self.textView.setContentOffset(CGPoint(x: 0, y: -textViewContentOffsetY), animated: false)
     }

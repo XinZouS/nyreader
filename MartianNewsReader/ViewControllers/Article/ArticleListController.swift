@@ -12,7 +12,7 @@ final class ArticleListController: UIViewController {
     let targetUrl = "http://mobile.public.ec2.nytimes.com.s3-website-us-east-1.amazonaws.com/candidates/content/v1/articles.plist"
     fileprivate var articles: [Article] = ArticleListProvider.shared.allArticles()
     
-    
+    fileprivate let toggleView = TranslateToggleView(title: L("article.ui.toggle.title"))
     fileprivate let tableView = UITableView()
     fileprivate let cellId = "articleCellId"
     
@@ -24,6 +24,7 @@ final class ArticleListController: UIViewController {
         view.backgroundColor = .white
         
         setupNavigationItems()
+        setupToggleView()
         setupTableView()
         ApiServers.shared.getArticleListData(route: targetUrl) { [weak self] (pList) in
             if let list = pList {
@@ -52,19 +53,39 @@ final class ArticleListController: UIViewController {
         navigationItem.rightBarButtonItem = changeLanguageButton
     }
     
+    private func setupToggleView() {
+        view.addSubview(toggleView)
+        let vs = view.safeAreaLayoutGuide
+        toggleView.anchor(vs.leadingAnchor, vs.topAnchor, vs.trailingAnchor, nil, lead: 0, top: 0, trail: 0, bottom: 0, width: 0, height: 40)
+        toggleView.layer.zPosition = 99 // toggleView on top of all layers
+        toggleView.setToggleOn(UserDefaults.getReadingLanguage() == ReadingLanguage.martian)
+        toggleView.delegate = self
+    }
+    
     private func setupTableView() {
         tableView.register(ArticleListCell.self, forCellReuseIdentifier: cellId)
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)
         let vs = view.safeAreaLayoutGuide
-        tableView.addConstraint(vs.leftAnchor, vs.topAnchor, vs.rightAnchor, vs.bottomAnchor)
+        tableView.addConstraint(vs.leftAnchor, toggleView.bottomAnchor, vs.rightAnchor, vs.bottomAnchor)
         tableView.tableFooterView = UIView()
     }
     
     @objc private func changeLanguageButtonTapped() {
         let languageSelectVC = LanguageSelectorViewController()
         navigationController?.pushViewController(languageSelectVC, animated: true)
+    }
+}
+
+extension ArticleListController: TranslateToggleDelegate {
+    
+    func toggleDidChanged(isOn: Bool) {
+        let newReadingLanguage: ReadingLanguage = toggleView.isToggleOn() ? .martian : .english
+        UserDefaults.setReadingLanguage(newReadingLanguage)
+        
+        print("--- should set all cells title translate text!!!")
+        
     }
 }
 
