@@ -53,15 +53,7 @@ class ArticleListCell: UITableViewCell {
         
         let isMartian = UserDefaults.getReadingLanguage() == .martian
         titleLabel.text = (isMartian ? TranslationManager.shared.toMartian(article.title) : article.title)
-        if let url = article.getTitleImage()?.getUrl() {
-            ApiServers.shared.getImageWith(url: url) { [weak self] (image) in
-                if let img = image {
-                    DispatchQueue.main.async {
-                        self?.topImageView.image = img
-                    }
-                }
-            }
-        }
+        topImageView.loadImageFrom(url: article.getTitleImage()?.getUrl())
     }
     
     override func prepareForReuse() {
