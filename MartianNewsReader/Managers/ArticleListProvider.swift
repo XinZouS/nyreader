@@ -16,6 +16,9 @@ final class ArticleListProvider {
     
     private convenience init() {
         self.init(articles: [])
+        let targetUrl = "http://mobile.public.ec2.nytimes.com.s3-website-us-east-1.amazonaws.com/candidates/content/v1/articles.plist"
+        loadArticlesBy(route: targetUrl) { _ in
+        }
     }
     
     init(articles: [Article]) {
@@ -34,6 +37,7 @@ final class ArticleListProvider {
                 }
             }
             completion(self.articles)
+            NotificationCenter.default.post(name: Notification.Name.ArticleListProvider.ListUpdated, object: nil)
         }
     }
     

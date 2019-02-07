@@ -26,13 +26,18 @@ final class ArticleListController: UIViewController {
         setupToggleView()
         setupTableView()
         
-        let targetUrl = "http://mobile.public.ec2.nytimes.com.s3-website-us-east-1.amazonaws.com/candidates/content/v1/articles.plist"
-        ArticleListProvider.shared.loadArticlesBy(route: targetUrl) { (getArticles) in
+        NotificationCenter.default.addObserver(forName: Notification.Name.ArticleListProvider.ListUpdated, object: nil, queue: nil) { [unowned self] _ in
+            let getArticles = ArticleListProvider.shared.allArticles()
+            self.articles.removeAll()
             self.articles.append(contentsOf: getArticles)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupNavigationItems() {

@@ -23,6 +23,7 @@
 		6647A4CC220A710500AE325A /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647A4CB220A710500AE325A /* TranslationManager.swift */; };
 		6647A4D1220B7CC000AE325A /* TranslateToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647A4D0220B7CC000AE325A /* TranslateToggleView.swift */; };
 		668CE7CF220C9BE6009F6CE3 /* ArticleListProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668CE7CE220C9BE6009F6CE3 /* ArticleListProviderTest.swift */; };
+		668CE7D7220CED1A009F6CE3 /* Notification++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668CE7D6220CED1A009F6CE3 /* Notification++.swift */; };
 		C3D2D3981CB7F9540049D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3971CB7F9540049D449 /* AppDelegate.swift */; };
 		C3D2D39F1CB7F9540049D449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D2D39E1CB7F9540049D449 /* Assets.xcassets */; };
 		C3D2D3A21CB7F9540049D449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D2D3A01CB7F9540049D449 /* LaunchScreen.storyboard */; };
@@ -62,6 +63,7 @@
 		668CE7CC220C9BE5009F6CE3 /* ArticleListProviderTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArticleListProviderTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		668CE7CE220C9BE6009F6CE3 /* ArticleListProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListProviderTest.swift; sourceTree = "<group>"; };
 		668CE7D0220C9BE6009F6CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		668CE7D6220CED1A009F6CE3 /* Notification++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification++.swift"; sourceTree = "<group>"; };
 		C3D2D3941CB7F9540049D449 /* MartianNewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartianNewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D2D3971CB7F9540049D449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3D2D39E1CB7F9540049D449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				6647A4B32207556C00AE325A /* String++.swift */,
 				6647A4B52208D52700AE325A /* UIImageView++.swift */,
 				6647A4C9220A36A900AE325A /* UIColor++.swift */,
+				668CE7D6220CED1A009F6CE3 /* Notification++.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				C3D2D3981CB7F9540049D449 /* AppDelegate.swift in Sources */,
 				C3D2D3BA1CB7F9B80049D449 /* ArticleListProvider.swift in Sources */,
 				6647A4AD22062EF600AE325A /* GlobalVariable.swift in Sources */,
+				668CE7D7220CED1A009F6CE3 /* Notification++.swift in Sources */,
 				6647A4CA220A36A900AE325A /* UIColor++.swift in Sources */,
 				6647A4A722060A7800AE325A /* Article.swift in Sources */,
 				6647A4C82209D7CA00AE325A /* UIAlertController++.swift in Sources */,
