@@ -22,7 +22,8 @@ class ArticleListProviderTest: XCTestCase {
     
     func testPunctuation() {
         let articles = [["title": "Facebook plans to raise $10.6 billion in mega IPO", "body": "I'll buy that for a dollar!", "images": []]]
-        
+        let newArticle = Article(articles.first!, index: 0)
+        ArticleListProvider.shared.addArticles([newArticle])
         guard let article = ArticleListProvider.shared.articleAtIndex(0) else { XCTFail("Article provider should return an article."); return }
         
         assertArticleHasMartianTitleText(article, expectedText: "Boinga boinga to boinga $boinga boinga in boinga IPO")
@@ -31,19 +32,20 @@ class ArticleListProviderTest: XCTestCase {
     
     func testCapitalization() {
         let articles = [["title": "New DARPA report on the internet", "body": "", "images": []]]
-        
+        let newArticle = Article(articles.first!, index: 0)
+        ArticleListProvider.shared.addArticles([newArticle])
         guard let article = ArticleListProvider.shared.articleAtIndex(0) else { XCTFail("Article provider should return an article."); return }
         
         assertArticleHasMartianTitleText(article, expectedText: "New BOINGA boinga on the boinga")
         assertArticleHasMartianBodyText(article, expectedText: "")
     }
     
-    func assertArticleHasMartianTitleText(_ article: AnyObject, expectedText: String) {
-        //        assertionFailure("Not yet implemented.")
+    func assertArticleHasMartianTitleText(_ article: Article, expectedText: String) {
+        XCTAssertEqual(article.title, expectedText)
     }
     
-    func assertArticleHasMartianBodyText(_ article: AnyObject, expectedText: String) {
-        //        assertionFailure("Not yet implemented.")
+    func assertArticleHasMartianBodyText(_ article: Article, expectedText: String) {
+        XCTAssertEqual(article.body, expectedText)
     }
     
 }
