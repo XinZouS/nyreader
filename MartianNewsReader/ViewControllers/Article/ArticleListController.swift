@@ -9,8 +9,7 @@ import UIKit
 
 final class ArticleListController: UIViewController {
     
-    let targetUrl = "http://mobile.public.ec2.nytimes.com.s3-website-us-east-1.amazonaws.com/candidates/content/v1/articles.plist"
-    fileprivate var articles: [Article] = ArticleListProvider.shared.allArticles()
+    fileprivate var articles: [Article] = []
     
     fileprivate let toggleView = TranslateToggleView(title: L("article.ui.toggle.title"))
     fileprivate let tableView = UITableView()
@@ -26,14 +25,12 @@ final class ArticleListController: UIViewController {
         setupNavigationItems()
         setupToggleView()
         setupTableView()
-        ApiServers.shared.getArticleListData(route: targetUrl) { [unowned self] (pList) in
-            if let list = pList {
-                for (idx, item) in list.enumerated() {
-                    self.articles.append(Article(item, index: idx))
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+        
+        let targetUrl = "http://mobile.public.ec2.nytimes.com.s3-website-us-east-1.amazonaws.com/candidates/content/v1/articles.plist"
+        ArticleListProvider.shared.loadArticlesBy(route: targetUrl) { (getArticles) in
+            self.articles.append(contentsOf: getArticles)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
     }

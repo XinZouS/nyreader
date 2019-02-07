@@ -22,6 +22,21 @@ final class ArticleListProvider {
         self.articles.append(contentsOf: articles)
     }
     
+    func addArticles(_ newArticles: [Article]) {
+        self.articles.append(contentsOf: newArticles)
+    }
+    
+    func loadArticlesBy(route: String, completion: @escaping([Article]) -> Void) {
+        ApiServers.shared.getArticleListData(route: route) { [unowned self] (pList) in
+            if let list = pList {
+                for (idx, item) in list.enumerated() {
+                    self.articles.append(Article(item, index: idx))
+                }
+            }
+            completion(self.articles)
+        }
+    }
+    
     func allArticles() -> [Article] {
         return articles
     }

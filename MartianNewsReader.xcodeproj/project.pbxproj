@@ -22,21 +22,17 @@
 		6647A4CA220A36A900AE325A /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647A4C9220A36A900AE325A /* UIColor++.swift */; };
 		6647A4CC220A710500AE325A /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647A4CB220A710500AE325A /* TranslationManager.swift */; };
 		6647A4D1220B7CC000AE325A /* TranslateToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647A4D0220B7CC000AE325A /* TranslateToggleView.swift */; };
+		668CE7CF220C9BE6009F6CE3 /* ArticleListProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668CE7CE220C9BE6009F6CE3 /* ArticleListProviderTest.swift */; };
 		C3D2D3981CB7F9540049D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3971CB7F9540049D449 /* AppDelegate.swift */; };
 		C3D2D39F1CB7F9540049D449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D2D39E1CB7F9540049D449 /* Assets.xcassets */; };
 		C3D2D3A21CB7F9540049D449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D2D3A01CB7F9540049D449 /* LaunchScreen.storyboard */; };
 		C3D2D3B81CB7F9B10049D449 /* ArticleListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3B71CB7F9B10049D449 /* ArticleListController.swift */; };
 		C3D2D3BA1CB7F9B80049D449 /* ArticleListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3B91CB7F9B80049D449 /* ArticleListProvider.swift */; };
-		C3D2D3BE1CB7F9EA0049D449 /* ArticleListProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3BD1CB7F9EA0049D449 /* ArticleListProviderTests.swift */; };
-		C3D2D3BF1CB7FB790049D449 /* ArticleListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3B71CB7F9B10049D449 /* ArticleListController.swift */; };
-		C3D2D3C01CB7FB7C0049D449 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3BB1CB7F9C10049D449 /* ArticleViewController.swift */; };
 		C3D2D3C11CB7FB7C0049D449 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3BB1CB7F9C10049D449 /* ArticleViewController.swift */; };
-		C3D2D3C21CB7FB7E0049D449 /* ArticleListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3B91CB7F9B80049D449 /* ArticleListProvider.swift */; };
-		C3D2D3C31CB7FB810049D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2D3971CB7F9540049D449 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C3D2D3A91CB7F9540049D449 /* PBXContainerItemProxy */ = {
+		668CE7D1220C9BE6009F6CE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3D2D38C1CB7F9540049D449 /* Project object */;
 			proxyType = 1;
@@ -63,28 +59,28 @@
 		6647A4C9220A36A900AE325A /* UIColor++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor++.swift"; sourceTree = "<group>"; };
 		6647A4CB220A710500AE325A /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
 		6647A4D0220B7CC000AE325A /* TranslateToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateToggleView.swift; sourceTree = "<group>"; };
+		668CE7CC220C9BE5009F6CE3 /* ArticleListProviderTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArticleListProviderTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		668CE7CE220C9BE6009F6CE3 /* ArticleListProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListProviderTest.swift; sourceTree = "<group>"; };
+		668CE7D0220C9BE6009F6CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3D2D3941CB7F9540049D449 /* MartianNewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartianNewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D2D3971CB7F9540049D449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3D2D39E1CB7F9540049D449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3D2D3A11CB7F9540049D449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3D2D3A31CB7F9540049D449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3D2D3A81CB7F9540049D449 /* MartianNewsReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MartianNewsReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3D2D3AE1CB7F9540049D449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3D2D3B71CB7F9B10049D449 /* ArticleListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleListController.swift; sourceTree = "<group>"; };
 		C3D2D3B91CB7F9B80049D449 /* ArticleListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleListProvider.swift; sourceTree = "<group>"; };
 		C3D2D3BB1CB7F9C10049D449 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
-		C3D2D3BD1CB7F9EA0049D449 /* ArticleListProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleListProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C3D2D3911CB7F9540049D449 /* Frameworks */ = {
+		668CE7C9220C9BE5009F6CE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3D2D3A51CB7F9540049D449 /* Frameworks */ = {
+		C3D2D3911CB7F9540049D449 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -177,11 +173,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		668CE7CD220C9BE6009F6CE3 /* ArticleListProviderTest */ = {
+			isa = PBXGroup;
+			children = (
+				668CE7CE220C9BE6009F6CE3 /* ArticleListProviderTest.swift */,
+				668CE7D0220C9BE6009F6CE3 /* Info.plist */,
+			);
+			path = ArticleListProviderTest;
+			sourceTree = "<group>";
+		};
 		C3D2D38B1CB7F9540049D449 = {
 			isa = PBXGroup;
 			children = (
 				C3D2D3961CB7F9540049D449 /* MartianNewsReader */,
-				C3D2D3AB1CB7F9540049D449 /* MartianNewsReaderTests */,
+				668CE7CD220C9BE6009F6CE3 /* ArticleListProviderTest */,
 				C3D2D3951CB7F9540049D449 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -190,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				C3D2D3941CB7F9540049D449 /* MartianNewsReader.app */,
-				C3D2D3A81CB7F9540049D449 /* MartianNewsReaderTests.xctest */,
+				668CE7CC220C9BE5009F6CE3 /* ArticleListProviderTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,18 +218,27 @@
 			path = MartianNewsReader;
 			sourceTree = "<group>";
 		};
-		C3D2D3AB1CB7F9540049D449 /* MartianNewsReaderTests */ = {
-			isa = PBXGroup;
-			children = (
-				C3D2D3AE1CB7F9540049D449 /* Info.plist */,
-				C3D2D3BD1CB7F9EA0049D449 /* ArticleListProviderTests.swift */,
-			);
-			path = MartianNewsReaderTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		668CE7CB220C9BE5009F6CE3 /* ArticleListProviderTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 668CE7D3220C9BE6009F6CE3 /* Build configuration list for PBXNativeTarget "ArticleListProviderTest" */;
+			buildPhases = (
+				668CE7C8220C9BE5009F6CE3 /* Sources */,
+				668CE7C9220C9BE5009F6CE3 /* Frameworks */,
+				668CE7CA220C9BE5009F6CE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				668CE7D2220C9BE6009F6CE3 /* PBXTargetDependency */,
+			);
+			name = ArticleListProviderTest;
+			productName = ArticleListProviderTest;
+			productReference = 668CE7CC220C9BE5009F6CE3 /* ArticleListProviderTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C3D2D3931CB7F9540049D449 /* MartianNewsReader */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3D2D3B11CB7F9540049D449 /* Build configuration list for PBXNativeTarget "MartianNewsReader" */;
@@ -242,44 +256,26 @@
 			productReference = C3D2D3941CB7F9540049D449 /* MartianNewsReader.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C3D2D3A71CB7F9540049D449 /* MartianNewsReaderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C3D2D3B41CB7F9540049D449 /* Build configuration list for PBXNativeTarget "MartianNewsReaderTests" */;
-			buildPhases = (
-				C3D2D3A41CB7F9540049D449 /* Sources */,
-				C3D2D3A51CB7F9540049D449 /* Frameworks */,
-				C3D2D3A61CB7F9540049D449 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C3D2D3AA1CB7F9540049D449 /* PBXTargetDependency */,
-			);
-			name = MartianNewsReaderTests;
-			productName = MartianNewsReaderTests;
-			productReference = C3D2D3A81CB7F9540049D449 /* MartianNewsReaderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C3D2D38C1CB7F9540049D449 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = NYTimes;
 				TargetAttributes = {
+					668CE7CB220C9BE5009F6CE3 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = 6S4EWJH888;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C3D2D3931CB7F9540049D449;
+					};
 					C3D2D3931CB7F9540049D449 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 6S4EWJH888;
 						LastSwiftMigration = 0900;
-					};
-					C3D2D3A71CB7F9540049D449 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 6S4EWJH888;
-						LastSwiftMigration = 0900;
-						TestTargetID = C3D2D3931CB7F9540049D449;
 					};
 				};
 			};
@@ -298,12 +294,19 @@
 			projectRoot = "";
 			targets = (
 				C3D2D3931CB7F9540049D449 /* MartianNewsReader */,
-				C3D2D3A71CB7F9540049D449 /* MartianNewsReaderTests */,
+				668CE7CB220C9BE5009F6CE3 /* ArticleListProviderTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		668CE7CA220C9BE5009F6CE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3D2D3921CB7F9540049D449 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,16 +317,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3D2D3A61CB7F9540049D449 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		668CE7C8220C9BE5009F6CE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				668CE7CF220C9BE6009F6CE3 /* ArticleListProviderTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3D2D3901CB7F9540049D449 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -349,25 +353,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3D2D3A41CB7F9540049D449 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C3D2D3BF1CB7FB790049D449 /* ArticleListController.swift in Sources */,
-				C3D2D3C01CB7FB7C0049D449 /* ArticleViewController.swift in Sources */,
-				C3D2D3BE1CB7F9EA0049D449 /* ArticleListProviderTests.swift in Sources */,
-				C3D2D3C31CB7FB810049D449 /* AppDelegate.swift in Sources */,
-				C3D2D3C21CB7FB7E0049D449 /* ArticleListProvider.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C3D2D3AA1CB7F9540049D449 /* PBXTargetDependency */ = {
+		668CE7D2220C9BE6009F6CE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C3D2D3931CB7F9540049D449 /* MartianNewsReader */;
-			targetProxy = C3D2D3A91CB7F9540049D449 /* PBXContainerItemProxy */;
+			targetProxy = 668CE7D1220C9BE6009F6CE3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -393,6 +385,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		668CE7D4220C9BE6009F6CE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6S4EWJH888;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ArticleListProviderTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stevens.xinzou.ArticleListProviderTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianNewsReader.app/MartianNewsReader";
+			};
+			name = Debug;
+		};
+		668CE7D5220C9BE6009F6CE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6S4EWJH888;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ArticleListProviderTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stevens.xinzou.ArticleListProviderTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianNewsReader.app/MartianNewsReader";
+			};
+			name = Release;
+		};
 		C3D2D3AF1CB7F9540049D449 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -439,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -488,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -527,42 +575,18 @@
 			};
 			name = Release;
 		};
-		C3D2D3B51CB7F9540049D449 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 6S4EWJH888;
-				INFOPLIST_FILE = MartianNewsReaderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReaderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianNewsReader.app/MartianNewsReader";
-			};
-			name = Debug;
-		};
-		C3D2D3B61CB7F9540049D449 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 6S4EWJH888;
-				INFOPLIST_FILE = MartianNewsReaderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nytimes.MartianNewsReaderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartianNewsReader.app/MartianNewsReader";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		668CE7D3220C9BE6009F6CE3 /* Build configuration list for PBXNativeTarget "ArticleListProviderTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				668CE7D4220C9BE6009F6CE3 /* Debug */,
+				668CE7D5220C9BE6009F6CE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C3D2D38F1CB7F9540049D449 /* Build configuration list for PBXProject "MartianNewsReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -577,15 +601,6 @@
 			buildConfigurations = (
 				C3D2D3B21CB7F9540049D449 /* Debug */,
 				C3D2D3B31CB7F9540049D449 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C3D2D3B41CB7F9540049D449 /* Build configuration list for PBXNativeTarget "MartianNewsReaderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C3D2D3B51CB7F9540049D449 /* Debug */,
-				C3D2D3B61CB7F9540049D449 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
