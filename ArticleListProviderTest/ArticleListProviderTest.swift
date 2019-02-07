@@ -41,11 +41,13 @@ class ArticleListProviderTest: XCTestCase {
     }
     
     func assertArticleHasMartianTitleText(_ article: Article, expectedText: String) {
-        XCTAssertEqual(article.title, expectedText)
+        let martian = TranslationManager.shared.toMartian(article.title)
+        XCTAssertEqual(martian, expectedText)
     }
     
     func assertArticleHasMartianBodyText(_ article: Article, expectedText: String) {
-        XCTAssertEqual(article.body, expectedText)
+        let martian = TranslationManager.shared.toMartian(article.body)
+        XCTAssertEqual(martian, expectedText)
     }
     
 }

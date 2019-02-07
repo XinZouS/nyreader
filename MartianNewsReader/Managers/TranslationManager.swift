@@ -49,11 +49,11 @@ extension TranslationManager {
         
         while slow <= fast, fast < scalars.count, slow < scalars.count {
             
-            // 1. finding words and jump over ' inside words
+            // 1. finding words/numbers and jump over ' . inside them: we'll, 10.66
             if CharacterSet.alphanumerics.contains(scalars[fast]) {
                 slow = fast
                 while (fast < scalars.count && CharacterSet.alphanumerics.contains(scalars[fast]))
-                    || (fast < scalars.count && scalars[fast] == "'" && fast + 1 < scalars.count && CharacterSet.alphanumerics.contains(scalars[fast + 1])) {
+                    || (fast < scalars.count && (scalars[fast] == "'" || scalars[fast] == ".") && fast + 1 < scalars.count && CharacterSet.alphanumerics.contains(scalars[fast + 1])) {
                         fast += 1
                 }
                 if fast - slow > 3 {
