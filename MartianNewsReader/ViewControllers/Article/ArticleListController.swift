@@ -12,6 +12,7 @@ final class ArticleListController: UIViewController {
     fileprivate var articles: [Article] = []
     
     fileprivate let toggleView = TranslateToggleView(title: L("article.ui.toggle.title"))
+    fileprivate let refresher = UIRefreshControl()
     fileprivate let tableView = UITableView()
     fileprivate let cellId = "articleCellId"
     
@@ -30,9 +31,7 @@ final class ArticleListController: UIViewController {
             let getArticles = ArticleListProvider.shared.allArticles()
             self.articles.removeAll()
             self.articles.append(contentsOf: getArticles)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.refreshTable()
         }
     }
     
@@ -72,11 +71,22 @@ final class ArticleListController: UIViewController {
         let vs = view.safeAreaLayoutGuide
         tableView.addConstraint(vs.leftAnchor, toggleView.bottomAnchor, vs.rightAnchor, vs.bottomAnchor)
         tableView.tableFooterView = UIView()
+        
+        refresher.attributedTitle = NSAttributedString(string: L("article.ui.table-refresher.title"))
+        refresher.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        tableView.addSubview(refresher)
     }
     
     @objc private func changeLanguageButtonTapped() {
         let languageSelectVC = LanguageSelectorViewController()
         navigationController?.pushViewController(languageSelectVC, animated: true)
+    }
+    
+    @objc private func refreshTable() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.refresher.endRefreshing()
+        }
     }
 }
 

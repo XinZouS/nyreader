@@ -18,6 +18,7 @@
 "article.change-language.martian" = "Boinga(Ma)";
 "article.change-language.martian.short" = "Ma.";
 "article.ui.toggle.title" = "Boinga to Boinga";
+"article.ui.table-refresher.title" = "Boinga Boinga to Boinga";
 
 // MARK: - Settings
 "settings.ui.title.change-language" = "App Boinga";

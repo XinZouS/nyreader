@@ -18,6 +18,7 @@
 "article.change-language.martian" = "Martian";
 "article.change-language.martian.short" = "Ma.";
 "article.ui.toggle.title" = "Translate to Martian";
+"article.ui.table-refresher.title" = "Pull down to refresh";
 
 // MARK: - Settings
 "settings.ui.title.change-language" = "App Language";
