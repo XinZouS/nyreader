@@ -18,6 +18,8 @@ final class TranslationManager: NSObject {
     
     fileprivate let martianArticleCache = NSCache<NSString, Article>()
     
+    fileprivate let martainLowerCased = "boinga"
+    fileprivate let martainCapitalized = "Boinga"
 }
 
 extension TranslationManager {
@@ -40,9 +42,48 @@ extension TranslationManager {
     }
     
     func toMartian(_ englishStr: String) -> String {
-        let words = englishStr.words()
-        print(words)
-        return ""
+        let scalars: [UnicodeScalar] = Array(englishStr.unicodeScalars)
+        var fast = 0
+        var slow = 0
+        var result = ""
+        
+        while slow <= fast, fast < scalars.count, slow < scalars.count {
+            
+            // 1. finding words and jump over ' inside words
+            if CharacterSet.alphanumerics.contains(scalars[fast]) {
+                slow = fast
+                while (fast < scalars.count && CharacterSet.alphanumerics.contains(scalars[fast]))
+                    || (fast < scalars.count && scalars[fast] == "'" && fast + 1 < scalars.count && CharacterSet.alphanumerics.contains(scalars[fast + 1])) {
+                        fast += 1
+                }
+                if fast - slow > 3 {
+                    if slow < scalars.count && CharacterSet.uppercaseLetters.contains(scalars[slow]) {
+                        result.append(martainCapitalized)
+                    } else {
+                        result.append(martainLowerCased)
+                    }
+                    if fast < scalars.count {
+                        result.append("\(scalars[fast])")
+                    }
+                    slow = fast + 1
+                    
+                } else {
+                    while slow < scalars.count && slow <= fast {
+                        result.unicodeScalars.append(scalars[slow])
+                        slow += 1
+                    }
+                }
+            // 2. finding punctuations: , . ; ! ? + - ( ) ...
+            } else {
+                while slow < scalars.count && slow <= fast {
+                    result.unicodeScalars.append(scalars[slow])
+                    slow += 1
+                }
+            }
+            fast += 1
+        }
+        
+        return result
     }
     
 }
