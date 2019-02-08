@@ -42,13 +42,13 @@ class ArticleListProviderTest: XCTestCase {
     
     
     func testComplexPunctuation() {
-        let articles = [["title": "[Facebook] plans? to \"raise\" ($10.6 billion) in mega IPO!!!!!", "body": "I'll: buy [2-1] = 1, for a dollar!", "images": []]]
+        let articles = [["title": "[Facebook] plans? to \"raise\" ($10.6 billion) in mega IPO!!!!!", "body": "I'll: buy [2-0.4] = $1.6, for a dollar!", "images": []]]
         let newArticle = Article(articles.first!, index: 0)
         ArticleListProvider.shared.addArticles([newArticle])
         guard let article = ArticleListProvider.shared.articleAtIndex(0) else { XCTFail("Article provider should return an article."); return }
         
         assertArticleHasMartianTitleText(article, expectedText: "[Boinga] boinga? to \"boinga\" ($boinga boinga) in boinga IPO!!!!!")
-        assertArticleHasMartianBodyText(article, expectedText: "Boinga: buy [2-1] = 1, for a boinga!")
+        assertArticleHasMartianBodyText(article, expectedText: "Boinga: buy [2-0.4] = $1.6, for a boinga!")
     }
     
     

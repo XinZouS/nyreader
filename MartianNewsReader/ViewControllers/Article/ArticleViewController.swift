@@ -42,6 +42,7 @@ final class ArticleViewController: UIViewController {
         setupToggleView()
         setupTextView()
         setupTitleViews()
+        displayArticle()
     }
     
     private func setupToggleView() {
@@ -101,6 +102,22 @@ final class ArticleViewController: UIViewController {
         self.textView.setContentOffset(CGPoint(x: 0, y: -textViewContentOffsetY), animated: false)
     }
     
+    fileprivate func displayArticle() {
+        guard let article = self.article else { return }
+        
+        let readingLanguage: ReadingLanguage = toggleContainerView.isToggleOn() ? .martian : .english
+        if readingLanguage == .english {
+            titleLabel.text = article.title
+            textView.text = article.body
+        } else {
+            TranslationManager.shared.toMartianArticle(article) { [weak self] (martianArticle) in
+                DispatchQueue.main.async {
+                    self?.titleLabel.text = martianArticle.title
+                    self?.textView.text = martianArticle.body
+                }
+            }
+        }
+    }
 }
 
 extension ArticleViewController: TranslateToggleDelegate {
@@ -108,10 +125,7 @@ extension ArticleViewController: TranslateToggleDelegate {
     func toggleDidChanged(isOn: Bool) {
         let newReadingLanguage: ReadingLanguage = toggleContainerView.isToggleOn() ? .martian : .english
         UserDefaults.setReadingLanguage(newReadingLanguage)
-        
-        if let text = article?.body {
-            print("--- should get the translate text!!!")
-        }
+        displayArticle()
     }
     
 }
